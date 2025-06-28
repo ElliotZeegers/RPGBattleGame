@@ -27,7 +27,6 @@ public class PlayerBattle : BattleEntity
 
     protected override void Start()
     {
-        //GameplayManager.Instance.OnSwapInput += ChangeInput;
         base.Start();
     }
 
@@ -91,14 +90,9 @@ public class PlayerBattle : BattleEntity
         _targetingScript.enabled = false;
     }
 
-    //public void ChangeInput()
-    //{
-    //    _playerInput = GetComponent<IPlayerInteractInput>();
-    //}
-
-    //public void UnSubscribe()
-    //{
-    //    _playerChoice.UnSubscribe();
-    //    GameplayManager.Instance.OnSwapInput -= ChangeInput;
-    //}
+    public void ChangeInput()
+    {
+        _playerInput = GetComponent<IPlayerInteractInput>();
+        _playerChoice.ChangeInput();
+    }
 }

@@ -26,11 +26,13 @@ public class OptionBlock : MonoBehaviour
                 int runChance = Random.Range(0, 5);
                 if (runChance == 0)
                 {
+                    print("weg gekomen");
                     BattleManager.Instance.StartCoroutine(BattleManager.Instance.EndBattle("You escaped"));
-                    GameplayManager.Instance.EndBattle();
+                    GameplayManager.Instance.EndBattleRun();
                 }
                 else
                 {
+                    print("niet weg gekomen");
                     BattleManager.Instance.EndTurn();
                 }
                 break;

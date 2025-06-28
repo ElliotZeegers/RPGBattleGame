@@ -58,7 +58,6 @@ public class BattleEntity : MonoBehaviour
     {
         _isMyTurn = true;
         _entityRenderer.material = _activeTurnMaterial;
-        print(_name + " ik ben aan de beurt");
     }
 
     public virtual void Takedamage(float pBaseDamage, float pMultiplier, float pMoveMultiplier)

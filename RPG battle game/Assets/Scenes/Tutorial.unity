@@ -268,14 +268,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '(Controller (Xbox) )
+  m_Text: '(Controller (getest met Xbox controller) )
 
-    -Ga door de blokken heen met de joystick
+    -Ga door de blokken heen
+    met de joystick
 
-    -Klik
-    op A om een keuze te bevestigen
+    -Klik op A om een keuze te bevestigen
 
-    -Klik op B om terug te gaan
+    -Klik op B om
+    terug te gaan
 
 
 '
@@ -498,7 +499,7 @@ GameObject:
   - component: {fileID: 468932288}
   - component: {fileID: 468932287}
   m_Layer: 5
-  m_Name: OverworldTextUitleg
+  m_Name: OverworldTextExplanation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1174,7 +1175,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '(Controller (Xbox) )
+  m_Text: '(Controller (getest met Xbox controller) )
 
     -Loop rond met de joystick
 
@@ -1614,7 +1615,7 @@ GameObject:
   - component: {fileID: 1913671922}
   - component: {fileID: 1913671921}
   m_Layer: 5
-  m_Name: BattleTextUitleg (1)
+  m_Name: InputSwapText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1672,8 +1673,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Er is tijdens het spelen rechtsboven een knop aanwezig die verandert of
-    je met toetsenbord of controller kunt spelen.\n(niet in de menu\u2019s)\n"
+  m_Text: "Tijdens het spelen van het spel kun je simpel van input wisselen tussen
+    toetsenbord en controller door input te geven met het gewenste input device.\n(niet
+    in de menu\u2019s)\n"
 --- !u!222 &1913671922
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1694,7 +1696,7 @@ GameObject:
   - component: {fileID: 2012113171}
   - component: {fileID: 2012113170}
   m_Layer: 5
-  m_Name: BattleTextUitleg
+  m_Name: BattleTextExplanation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

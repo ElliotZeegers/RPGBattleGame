@@ -85,14 +85,14 @@ public class BattleManager : MonoBehaviour
 
         _currentEntity = _turnList[_currentTurnIndex];
 
-        if (_currentEntity.Hp <= 0)
-        {
-            _currentTurnIndex++;
-            StartNextTurn();
-            return;
-        }
+        //if (_currentEntity.Hp <= 0)
+        //{
+        //    _currentTurnIndex++;
+        //    StartNextTurn();
+        //    return;
+        //}
 
-        _currentEntity.TurnBehaviour();
+        StartCoroutine(DelayedTurnBehaviour());
     }
 
     public void EndTurn()
@@ -141,7 +141,6 @@ public class BattleManager : MonoBehaviour
             if (entity.GetType() == typeof(PlayerBattle))
             {
                 PlayerBattle playerBattle = (PlayerBattle)entity;
-                //playerBattle.UnSubscribe();
                 _battlePlayers.Remove((PlayerBattle)entity);
             }
             else if (entity.GetType() == typeof(EnemyBattle))
@@ -156,15 +155,12 @@ public class BattleManager : MonoBehaviour
         if (_battleEnemies.Count() == 0)
         {
             StartCoroutine(EndBattle("Player Wins"));
-            GameplayManager.Instance.EndBattle();
+            GameplayManager.Instance.EndBattleWin();
             foreach(BattleEntity battleEntity in _battleEntities)
             {
                 battleEntity.enabled = false;
             }
-            //foreach(PlayerBattle playerBattle in _battlePlayers)
-            //{
-            //    playerBattle.UnSubscribe();
-            //}
+
             this.enabled = false;
             return;
         }
@@ -180,6 +176,12 @@ public class BattleManager : MonoBehaviour
 
             return;
         }
+    }
+
+    IEnumerator DelayedTurnBehaviour()
+    {
+        yield return null;
+        _currentEntity.TurnBehaviour();
     }
 
     public IEnumerator EndBattle(string pDisplayText)

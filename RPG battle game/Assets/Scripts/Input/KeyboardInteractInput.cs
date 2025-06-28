@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class KeyboardInteractInput : MonoBehaviour, IPlayerInteractInput
@@ -23,21 +22,11 @@ public class KeyboardInteractInput : MonoBehaviour, IPlayerInteractInput
 
     public bool Confirm()
     {
-        if (Input.GetKeyDown(_keyConfirm))
-        {
-            return true;
-        }
-
-        return false;
+        return Input.GetKeyDown(_keyConfirm);
     }
 
     public bool Return()
     {
-        if (Input.GetKeyDown(_keyReturn))
-        {
-            return true;
-        }
-
-        return false;
+        return Input.GetKeyDown(_keyReturn);
     }
 }

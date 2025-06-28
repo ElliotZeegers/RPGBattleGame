@@ -1,4 +1,4 @@
-using System;
+
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,10 +16,9 @@ public class GameplayManager : MonoBehaviour
     private int _enemiesdefeatedCount;
     [SerializeField] private Text _enemiesdefeatedCounterText;
     private BattleHandler _startBattleScript;
+    private SwapInput _swapInputScript;
 
     GameState _state = GameState.Overworld;
-
-    //public event Action OnSwapInput;
 
     public GameState State { get { return _state; } }
 
@@ -36,11 +35,12 @@ public class GameplayManager : MonoBehaviour
         Instance = this;
 
         _startBattleScript = GetComponent<BattleHandler>();
+        _swapInputScript = GetComponentInChildren<SwapInput>();
     }
 
     public void Pause(GameObject pPlayerGroup, GameObject pEnemyGroup, GameObject pStartedBattleEnemy)
     {
-        _pausableObjects = UnityEngine.Object.FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IPausable>().ToArray();
+        _pausableObjects = Object.FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IPausable>().ToArray();
         foreach (IPausable p in _pausableObjects)
         {
             p.Pause(false);
@@ -48,14 +48,32 @@ public class GameplayManager : MonoBehaviour
         _state = GameState.Battle;
         _startBattleScript.EnterBattle(pPlayerGroup, pEnemyGroup, pStartedBattleEnemy);
     }
-
-    public void EndBattle()
+    public void UnPause()
     {
-        _startBattleScript.ExitBattle();
+        foreach (IPausable p in _pausableObjects)
+        {
+            p.Pause(true);
+        }
+        _swapInputScript.OnChangeGameState();
+    }
+
+    public void StartBattle()
+    {
+        _swapInputScript.OnChangeGameState();
+    }
+    public void EndBattleWin()
+    {
+        _startBattleScript.ExitBattleWin();
         _enemiesdefeatedCount++;
         _enemiesdefeatedCounterText.text = "Enemies defeated: " + _enemiesdefeatedCount;
         _state = GameState.Overworld;
         CheckForWin();
+    }
+
+    public void EndBattleRun()
+    {
+        _startBattleScript.ExitBattleRun();
+        _state = GameState.Overworld;
     }
 
     public void CheckForWin()
@@ -66,16 +84,4 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    public void UnPause()
-    {
-        foreach (IPausable p in _pausableObjects)
-        {
-            p.Pause(true);
-        }
-    }
-
-    //public void SwapInput()
-    //{
-    //    OnSwapInput?.Invoke();
-    //}
 }

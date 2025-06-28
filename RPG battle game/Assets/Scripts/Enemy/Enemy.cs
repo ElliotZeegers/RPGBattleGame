@@ -2,25 +2,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IPausable
 {
-    private IProtectable _protection;
     [SerializeField] private GameObject _playerGroup;
     [SerializeField] private GameObject _enemyGroup;
+    private PlayerProtection _protection;
     void Start()
     {
+        _protection = GetComponent<PlayerProtection>();
     }
 
     void Update()
     {
-
+        _protection.CheckForProtection();
     }
 
     public void Pause(bool p)
     {
-        if (p == false)
-        {
+        _protection.HasProtection = p;
 
-        }
-        //this.gameObject.SetActive(p);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,4 +29,4 @@ public class Enemy : MonoBehaviour, IPausable
             GameplayManager.Instance.Pause(_playerGroup, _enemyGroup, this.transform.root.gameObject);
         }
     }
-}   
+}

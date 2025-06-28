@@ -30,11 +30,6 @@ public class PlayerChoice : MonoBehaviour
             _blockPositions.Add(optionBlock.transform);
         }
     }
-    void Start()
-    {
-        //GameplayManager.Instance.OnSwapInput += ChangeInput;
-    }
-
 
     private void Update()
     {
@@ -114,13 +109,8 @@ public class PlayerChoice : MonoBehaviour
         _optionBlocks[_selectedBlock].Activate();
     }
 
-    //public void ChangeInput()
-    //{
-    //    _playerInput = GetComponentInParent<IPlayerInteractInput>();
-    //}
-
-    //public void UnSubscribe()
-    //{
-    //    GameplayManager.Instance.OnSwapInput -= ChangeInput;
-    //}
+    public void ChangeInput()
+    {
+        _playerInput = GetComponentInParent<IPlayerInteractInput>();
+    }
 }

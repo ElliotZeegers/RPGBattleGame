@@ -3,10 +3,6 @@ using UnityEngine;
 
 public class ControllerInteractInput : MonoBehaviour, IPlayerInteractInput
 {
-    private string _horizontalAxis = "Horizontal";
-    private string _confirmButton = "Submit";
-    private string _returnButton = "Cancel";
-
     private float _inputCooldown = 0.25f;
     private float _cooldownTimer = 0f;
 
@@ -20,16 +16,16 @@ public class ControllerInteractInput : MonoBehaviour, IPlayerInteractInput
 
     public int SelectOption()
     {
-        float horizontalInput = Input.GetAxisRaw(_horizontalAxis);
+        float horizontalInput = Input.GetAxisRaw("JoystickHorizontal");
 
         if (_cooldownTimer <= 0f)
         {
-            if (horizontalInput > 0.5f)
+            if (horizontalInput > 0f)
             {
                 _cooldownTimer = _inputCooldown;
                 return -1;
             }
-            else if (horizontalInput < -0.5f)
+            else if (horizontalInput < 0f)
             {
                 _cooldownTimer = _inputCooldown;
                 return +1;
@@ -41,11 +37,11 @@ public class ControllerInteractInput : MonoBehaviour, IPlayerInteractInput
 
     public bool Confirm()
     {
-        return Input.GetButtonDown(_confirmButton);
+        return Input.GetKeyDown(KeyCode.JoystickButton0);
     }
 
     public bool Return()
     {
-        return Input.GetButtonDown(_returnButton);
+        return Input.GetKeyDown(KeyCode.JoystickButton1);
     }
 }

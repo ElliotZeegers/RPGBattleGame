@@ -7,8 +7,8 @@ public class ControllerMoveInput : MonoBehaviour, IPlayerMoveInput
     {
         Vector2 input = Vector2.zero;
 
-        input.x = Input.GetAxis("Horizontal");
-        input.y = Input.GetAxis("Vertical");
+        input.x = Input.GetAxisRaw("JoystickHorizontal");
+        input.y = Input.GetAxisRaw("JoystickVertical");
 
         return input;
     }

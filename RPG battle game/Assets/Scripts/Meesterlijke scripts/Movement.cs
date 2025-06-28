@@ -12,6 +12,5 @@ public class Movement : MonoBehaviour, IMoveable
     public void Move(Vector2 pMoveInput, float pSpeed)
     {
         _rb.AddForce(pMoveInput * pSpeed, ForceMode2D.Impulse);
-        //_rb.linearVelocity += pMoveInput * pSpeed;
     }
 }

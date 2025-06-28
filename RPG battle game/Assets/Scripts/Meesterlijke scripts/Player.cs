@@ -5,6 +5,7 @@ public class Player : MonoBehaviour, IPausable
 {
     private IPlayerMoveInput _input;
     private IMoveable _moveable;
+    [SerializeField] private float _moveSpeed = 10f;
 
     private void Awake()
     {
@@ -12,14 +13,9 @@ public class Player : MonoBehaviour, IPausable
         _moveable = GetComponent<IMoveable>();
     }
 
-    void Start()
-    {
-        //GameplayManager.Instance.OnSwapInput += ChangeInput;
-    }
-
     void FixedUpdate()
     {
-        _moveable.Move(_input.GetMovementInput(), 10f);
+        _moveable.Move(_input.GetMovementInput(), _moveSpeed);
     }
 
     public void Pause(bool p)
@@ -27,8 +23,8 @@ public class Player : MonoBehaviour, IPausable
         this.gameObject.SetActive(p);
     }
 
-    //public void ChangeInput()
-    //{
-    //    _input = GetComponent<IPlayerMoveInput>();
-    //}
+    public void ChangeInput()
+    {
+        _input = GetComponent<IPlayerMoveInput>();
+    }
 }

@@ -17,6 +17,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private Text _enemiesdefeatedCounterText;
     private BattleHandler _startBattleScript;
     private SwapInput _swapInputScript;
+    private bool _battleStarting = false;
 
     GameState _state = GameState.Overworld;
 
@@ -40,6 +41,11 @@ public class GameplayManager : MonoBehaviour
 
     public void Pause(GameObject pPlayerGroup, GameObject pEnemyGroup, GameObject pStartedBattleEnemy)
     {
+        if (_battleStarting || _state == GameState.Battle)
+        {
+            return;
+        }
+
         _pausableObjects = Object.FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IPausable>().ToArray();
         foreach (IPausable p in _pausableObjects)
         {
@@ -48,6 +54,8 @@ public class GameplayManager : MonoBehaviour
         _state = GameState.Battle;
         _startBattleScript.EnterBattle(pPlayerGroup, pEnemyGroup, pStartedBattleEnemy);
     }
+
+
     public void UnPause()
     {
         foreach (IPausable p in _pausableObjects)
@@ -67,6 +75,7 @@ public class GameplayManager : MonoBehaviour
         _enemiesdefeatedCount++;
         _enemiesdefeatedCounterText.text = "Enemies defeated: " + _enemiesdefeatedCount;
         _state = GameState.Overworld;
+        _battleStarting = false;
         CheckForWin();
     }
 
@@ -74,6 +83,7 @@ public class GameplayManager : MonoBehaviour
     {
         _startBattleScript.ExitBattleRun();
         _state = GameState.Overworld;
+        _battleStarting = false;
     }
 
     public void CheckForWin()

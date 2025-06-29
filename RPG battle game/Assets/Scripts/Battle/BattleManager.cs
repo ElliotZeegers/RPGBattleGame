@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class BattleManager : MonoBehaviour
@@ -31,7 +30,7 @@ public class BattleManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject.transform.root.gameObject);
             return;
         }
         Instance = this;
@@ -78,7 +77,7 @@ public class BattleManager : MonoBehaviour
         {
             _currentTurnIndex = 0;
         }
-        else if ( _currentTurnIndex < 0)
+        else if (_currentTurnIndex < 0)
         {
             _currentTurnIndex = _turnList.Count() - 1;
         }
@@ -156,12 +155,12 @@ public class BattleManager : MonoBehaviour
         {
             StartCoroutine(EndBattle("Player Wins"));
             GameplayManager.Instance.EndBattleWin();
-            foreach(BattleEntity battleEntity in _battleEntities)
+            foreach (BattleEntity battleEntity in _battleEntities)
             {
                 battleEntity.enabled = false;
             }
 
-            this.enabled = false;
+            DisableManager();
             return;
         }
         if (_battlePlayers.Count() == 0)
@@ -171,11 +170,16 @@ public class BattleManager : MonoBehaviour
             {
                 battleEntity.enabled = false;
             }
+            DisableManager();
             SceneSwitcher.Instance.OnSwitchScene("LoseScene");
-            this.enabled = false;
 
             return;
         }
+    }
+
+    public void DisableManager()
+    {
+        this.enabled = false;
     }
 
     IEnumerator DelayedTurnBehaviour()
@@ -189,6 +193,5 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _battleUIManager.UpdateWinnerUI(pDisplayText);
         yield return new WaitForSeconds(1f);
-
     }
 }

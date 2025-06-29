@@ -8,9 +8,25 @@ public class PlayerProtection : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     [SerializeField] private Material _defaultMaterial;
     [SerializeField] private Material _flickerEffect;
-    private bool _hasProtection = false;
+    [SerializeField] private bool _hasProtection = false;
 
-    public bool HasProtection { get { return _hasProtection; } set { _hasProtection = value; } }
+    public bool HasProtection { get { return _hasProtection; }
+        set
+        {
+            _hasProtection = value;
+            if (value)
+            {
+                _collider.enabled = false;
+                _spriteRenderer.material = _flickerEffect;
+                _protectionTimer = _protectedTime;
+            }
+            else
+            {
+                _collider.enabled = true;
+                _spriteRenderer.material = _defaultMaterial;
+            }
+        }
+    }
 
     private void Start()
     {
@@ -28,8 +44,9 @@ public class PlayerProtection : MonoBehaviour
             _protectionTimer -= Time.deltaTime;
             if (_protectionTimer <= 0)
             {
-                _collider.enabled = true;
+                _protectionTimer = _protectedTime;
                 _spriteRenderer.material = _defaultMaterial;
+                _collider.enabled = true;
                 _hasProtection = false;
             }
         }

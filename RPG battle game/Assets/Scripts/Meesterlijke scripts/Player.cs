@@ -20,6 +20,7 @@ public class Player : MonoBehaviour, IPausable
 
     public void Pause(bool p)
     {
+        print(p);
         this.gameObject.SetActive(p);
     }
 

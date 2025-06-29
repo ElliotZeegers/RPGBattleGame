@@ -6,6 +6,8 @@ public class BattleHandler : MonoBehaviour
     [SerializeField] private GameObject _shaderEnterTransition;
     [SerializeField] private GameObject _shaderExitTransition;
     [SerializeField] private GameObject _battleSetup;
+    [SerializeField] private GameObject _battleObjectPrefab;
+    private GameObject _battleObject;
     private GameObject _battleSetupObject;
     private GameObject _playerGroup;
     private GameObject _enemyGroup;
@@ -20,9 +22,10 @@ public class BattleHandler : MonoBehaviour
         destroyShader.OnFinish = () =>
         {
             Instantiate(_shaderExitTransition, new Vector2(_mainCamera.transform.position.x, _mainCamera.transform.position.y), _mainCamera.transform.rotation);
-            _playerGroup = Instantiate(pPlayerGroup, new Vector2(_mainCamera.transform.position.x, _mainCamera.transform.position.y), _mainCamera.transform.rotation);
-            _enemyGroup = Instantiate(pEnemyGroup, new Vector2(_mainCamera.transform.position.x, _mainCamera.transform.position.y), _mainCamera.transform.rotation);
-            _battleSetupObject = Instantiate(_battleSetup, new Vector2(_mainCamera.transform.position.x, _mainCamera.transform.position.y), _mainCamera.transform.rotation);
+            _battleObject = Instantiate(_battleObjectPrefab, new Vector2(_mainCamera.transform.position.x, _mainCamera.transform.position.y), _mainCamera.transform.rotation);
+            _playerGroup = Instantiate(pPlayerGroup, _battleObject.transform);
+            _enemyGroup = Instantiate(pEnemyGroup, _battleObject.transform);
+            _battleSetupObject = Instantiate(_battleSetup, _battleObject.transform);
             GameplayManager.Instance.StartBattle();
         };
     }
@@ -35,9 +38,7 @@ public class BattleHandler : MonoBehaviour
         destroyShader.OnFinish = () =>
         {
             Instantiate(_shaderExitTransition, new Vector2(_mainCamera.transform.position.x, _mainCamera.transform.position.y), _mainCamera.transform.rotation);
-            Destroy(_playerGroup.gameObject);
-            Destroy(_enemyGroup.gameObject);
-            Destroy(_battleSetupObject.gameObject);
+            Destroy(_battleObject.gameObject);
             Destroy(_startedBattleEnemy.gameObject);
             GameplayManager.Instance.UnPause();
         };
@@ -51,9 +52,7 @@ public class BattleHandler : MonoBehaviour
         destroyShader.OnFinish = () =>
         {
             Instantiate(_shaderExitTransition, new Vector2(_mainCamera.transform.position.x, _mainCamera.transform.position.y), _mainCamera.transform.rotation);
-            Destroy(_playerGroup.gameObject);
-            Destroy(_enemyGroup.gameObject);
-            Destroy(_battleSetupObject.gameObject);
+            Destroy(_battleObject.gameObject);
             GameplayManager.Instance.UnPause();
         };
     }

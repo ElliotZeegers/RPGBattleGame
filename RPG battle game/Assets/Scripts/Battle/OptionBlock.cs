@@ -23,16 +23,19 @@ public class OptionBlock : MonoBehaviour
         switch (_blockType)
         {
             case BlockTypes.Run:
-                int runChance = Random.Range(0, 5);
+                int runChance = Random.Range(0, 1);
                 if (runChance == 0)
                 {
-                    print("weg gekomen");
                     BattleManager.Instance.StartCoroutine(BattleManager.Instance.EndBattle("You escaped"));
+                    foreach (BattleEntity battleEntity in BattleManager.Instance.BattleEntities)
+                    {
+                        battleEntity.enabled = false;
+                    }
                     GameplayManager.Instance.EndBattleRun();
+                    BattleManager.Instance.DisableManager();
                 }
                 else
                 {
-                    print("niet weg gekomen");
                     BattleManager.Instance.EndTurn();
                 }
                 break;

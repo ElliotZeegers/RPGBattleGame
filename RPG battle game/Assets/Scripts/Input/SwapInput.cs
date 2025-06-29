@@ -63,8 +63,7 @@ public class SwapInput : MonoBehaviour
     {
         if (_controllerMoveInput.GetMovementInput() != new Vector2(0, 0))
         {
-            IPlayerMoveInput input = _player.GetComponent<IPlayerMoveInput>();
-            Destroy((MonoBehaviour)input);
+            RemoveAllMoveInputs();
             _player.gameObject.AddComponent<ControllerMoveInput>();
             StartCoroutine(DelayedInputUpdateOverworld());
             _state = InputState.Controller;
@@ -77,8 +76,7 @@ public class SwapInput : MonoBehaviour
     {
         if (_keyboardMoveInput.GetMovementInput() != new Vector2(0, 0))
         {
-            IPlayerMoveInput input = _player.GetComponent<IPlayerMoveInput>();
-            Destroy((MonoBehaviour)input);
+            RemoveAllMoveInputs();
             _player.gameObject.AddComponent<KeyboardMoveInput>();
             StartCoroutine(DelayedInputUpdateOverworld());
             _state = InputState.Keyboard;
@@ -94,8 +92,7 @@ public class SwapInput : MonoBehaviour
             battlePlayers = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.InstanceID).OfType<PlayerBattle>().ToList();
             foreach (PlayerBattle player in battlePlayers)
             {
-                IPlayerInteractInput input = player.GetComponent<IPlayerInteractInput>();
-                Destroy((MonoBehaviour)input);
+                RemoveAllInteractInputs(player);
                 player.AddComponent<ControllerInteractInput>();
                 StartCoroutine(DelayedInputUpdateBattle(player));
             }
@@ -112,8 +109,7 @@ public class SwapInput : MonoBehaviour
             battlePlayers = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.InstanceID).OfType<PlayerBattle>().ToList();
             foreach (PlayerBattle player in battlePlayers)
             {
-                IPlayerInteractInput input = player.GetComponent<IPlayerInteractInput>();
-                Destroy((MonoBehaviour)input);
+                RemoveAllInteractInputs(player);
                 player.AddComponent<KeyboardInteractInput>();
                 StartCoroutine(DelayedInputUpdateBattle(player));
             }
@@ -121,10 +117,41 @@ public class SwapInput : MonoBehaviour
         }
     }
 
-    //Reset de input state naar keyboard bij een gamestate verandering
-    public void OnChangeGameState()
+    //Reset de input state naar keyboard bij een gamestate verandering, als die uit een battle komt reset hij ook de components op de speler
+    public void OnChangeGameState(bool pIsExitBattle)
     {
         _state = InputState.Keyboard;
+
+        if (pIsExitBattle)
+        {
+            IPlayerMoveInput moveInput = _player.GetComponent<IPlayerMoveInput>();
+            if (moveInput != null)
+            {
+                RemoveAllMoveInputs();
+                _player.gameObject.AddComponent<KeyboardMoveInput>();
+                StartCoroutine(DelayedInputUpdateOverworld());
+            }
+        }
+    }
+
+    //Zorgt ervoor dat alle IPlayerMoveInput components van de speler worden afgehaald
+    private void RemoveAllMoveInputs()
+    {
+        List<IPlayerMoveInput> moveInputs = _player.GetComponents<MonoBehaviour>().OfType<IPlayerMoveInput>().ToList();
+        foreach (IPlayerMoveInput input in moveInputs)
+        {
+            Destroy((MonoBehaviour)input);
+        }
+    }
+
+    //Zorgt ervoor dat alle IPlayerInteractInput components van de speler worden afgehaald
+    private void RemoveAllInteractInputs(PlayerBattle pPlayer)
+    {
+        List<IPlayerInteractInput> moveInputs = pPlayer.GetComponents<MonoBehaviour>().OfType<IPlayerInteractInput>().ToList();
+        foreach (IPlayerInteractInput input in moveInputs)
+        {
+            Destroy((MonoBehaviour)input);
+        }
     }
 
     //Hier gebruik ik een coroutine zodat het een frame wacht met zeggen dat er naar het nieuwe input component gezocht moet worden, als het niet 1 frame wacht werkt het niet

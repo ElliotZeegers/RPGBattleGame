@@ -72,13 +72,13 @@ public class GameplayManager : MonoBehaviour
             p.Pause(true);
         }
         //Zorgt ervoor dat de input weer op keyboard wordt gezet om bugs te voorkomen
-        _swapInputScript.OnChangeGameState();
+        _swapInputScript.OnChangeGameState(true);
     }
 
     public void StartBattle()
     {
         //Zorgt ervoor dat de input weer op keyboard wordt gezet om bugs te voorkomen
-        _swapInputScript.OnChangeGameState();
+        _swapInputScript.OnChangeGameState(false);
     }
 
     public void EndBattleWin()

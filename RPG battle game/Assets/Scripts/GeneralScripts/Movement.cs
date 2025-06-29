@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour, IMoveable
 {
-    Rigidbody2D _rb;
+    private Rigidbody2D _rb;
 
     private void Start()
     {
@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour, IMoveable
 
     public void Move(Vector2 pMoveInput, float pSpeed)
     {
+        //Verplaatst het object op basis van moveInput en pSpeed
         _rb.AddForce(pMoveInput * pSpeed, ForceMode2D.Impulse);
     }
 }

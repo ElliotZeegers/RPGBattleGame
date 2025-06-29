@@ -1,5 +1,4 @@
-using UnityEngine;
-
+//IPlayerInteractInput wordt gebruikt voor battles
 public interface IPlayerInteractInput
 {
     public int SelectOption();

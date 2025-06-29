@@ -7,10 +7,11 @@ public class KeyboardMoveInput : MonoBehaviour, IPlayerMoveInput
     private KeyCode _keyRight = KeyCode.D;
     private KeyCode _keyLeft = KeyCode.A;
 
+    //Pakt input van je toetsenbord en zet het om naar een Vector2
     public Vector2 GetMovementInput()
     {
         Vector2 input = Vector2.zero;
-
+       
         if (Input.GetKey(_keyForward))
         {
             input.y += 1;

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour, IPausable
 {
@@ -15,14 +14,17 @@ public class Player : MonoBehaviour, IPausable
 
     void FixedUpdate()
     {
+        //Vraag de beweging input op en geef mee aan _moveable.Move()
         _moveable.Move(_input.GetMovementInput(), _moveSpeed);
     }
 
+    //Zet het object aan of uit op basis van p
     public void Pause(bool p)
     {
         this.gameObject.SetActive(p);
     }
 
+    //Update de input component, wordt gebruikt voor als er een andere input component op komt
     public void ChangeInput()
     {
         _input = GetComponent<IPlayerMoveInput>();

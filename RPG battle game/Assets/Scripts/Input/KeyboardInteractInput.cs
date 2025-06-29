@@ -8,6 +8,7 @@ public class KeyboardInteractInput : MonoBehaviour, IPlayerInteractInput
     private KeyCode _keyReturn = KeyCode.Backspace;
     public int SelectOption()
     {
+        //Als er op _keyRight wordt gedrukt dan returnt hij -1 als er op _keyLeft wordt gedrukt dan returnt hij +1, en als er niks wordt gedrukt dan returnt hij 0
         if (Input.GetKeyDown(_keyRight))
         {
             return -1;
@@ -22,11 +23,13 @@ public class KeyboardInteractInput : MonoBehaviour, IPlayerInteractInput
 
     public bool Confirm()
     {
+        //Geeft true terug als er op de juiste knop is geklikt
         return Input.GetKeyDown(_keyConfirm);
     }
 
     public bool Return()
     {
+        //Geeft true terug als er op de juiste knop is geklikt
         return Input.GetKeyDown(_keyReturn);
     }
 }

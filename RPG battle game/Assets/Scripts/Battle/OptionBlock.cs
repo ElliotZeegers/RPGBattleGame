@@ -23,7 +23,7 @@ public class OptionBlock : MonoBehaviour
         switch (_blockType)
         {
             case BlockTypes.Run:
-                int runChance = Random.Range(0, 1);
+                int runChance = Random.Range(0, 5);
                 if (runChance == 0)
                 {
                     BattleManager.Instance.StartCoroutine(BattleManager.Instance.EndBattle("You escaped"));

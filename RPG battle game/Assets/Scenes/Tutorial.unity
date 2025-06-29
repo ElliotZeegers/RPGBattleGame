@@ -232,7 +232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 517, y: -55}
+  m_AnchoredPosition: {x: 517, y: -25.067017}
   m_SizeDelta: {x: 751.1367, y: 309.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &100614638
@@ -257,10 +257,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 45
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -823,7 +823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 517, y: -27.933}
+  m_AnchoredPosition: {x: 517, y: -7}
   m_SizeDelta: {x: 751.1367, y: 562.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829036540
@@ -848,10 +848,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 45
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1718,7 +1718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 517, y: -238.3133}
+  m_AnchoredPosition: {x: 517, y: -199}
   m_SizeDelta: {x: 751.1367, y: 393.8483}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2012113170
@@ -1743,10 +1743,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 45
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1763,14 +1763,19 @@ MonoBehaviour:
 
     -Alle players af? Jij verliest het spel
 
-    -Er zijn
-    3 opties om uit te kiezen
+    -Soms hebben
+    tegenstanders / spelers een witte cirkel over zich heen. Dit betekent dat ze
+    een schild hebben en geen HP kunnen verliezen. Als het schild geraakt wordt,
+    verdwijnt het.
 
-    1 Blauw (Ren 20% kans van slagen) 2 Rood (Attack
-    (daarna moet je een enemy selecteren (A,D / joystick) bevestig je keuze of ga
-    terug naar de blokken)) 3 Groen (Beurt overslaan)
+    -Er zijn 3 opties om uit te kiezen
 
-    (zie optieblokken hieronder)
+    1 Blauw (Ren 20%
+    kans van slagen) 2 Rood (Attack (daarna moet je een enemy selecteren (A,D / joystick)
+    bevestig je keuze of ga terug naar de blokken)) 3 Groen (Beurt overslaan)
+
+    (zie
+    optieblokken hieronder)
 
 
 '

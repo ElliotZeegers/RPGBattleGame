@@ -84,13 +84,6 @@ public class BattleManager : MonoBehaviour
 
         _currentEntity = _turnList[_currentTurnIndex];
 
-        //if (_currentEntity.Hp <= 0)
-        //{
-        //    _currentTurnIndex++;
-        //    StartNextTurn();
-        //    return;
-        //}
-
         StartCoroutine(DelayedTurnBehaviour());
     }
 
@@ -119,7 +112,6 @@ public class BattleManager : MonoBehaviour
         {
             if (_battleEntities[i].Hp <= 0)
             {
-                print("ik ben af " + _battleEntities[i].Name);
                 Destroy(_battleEntities[i].gameObject);
                 removeEntities.Add(_battleEntities[i]);
 

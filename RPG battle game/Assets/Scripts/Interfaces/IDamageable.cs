@@ -1,6 +1,6 @@
 public interface IDamageable
 {
-    public float ClaculateDamage(float pBaseDamage);
+    public float CalculateDamage(float pBaseDamage);
 
-    public float ClaculateDamage(float pBaseDamage, float pMultiplier, float pMoveMultiplier, float pDefense);
+    public float CalculateDamage(float pBaseDamage, float pMultiplier, float pMoveMultiplier, float pDefense);
 }

@@ -13,12 +13,16 @@ public class Health : MonoBehaviour
     {
         _battleEntity = GetComponent<BattleEntity>();
         _hp = _battleEntity.Hp;
+        //Instantiate de UI prefab als child van dit object
         Instantiate(_healthUIPrefab, this.transform);
+        //Zoekt de eerste Image component met type 'Filled' (voor gebruik als healthbar)
         _healthImage = GetComponentsInChildren<Image>().FirstOrDefault(img => img.type == Image.Type.Filled);
     }
 
+    // Update de healthbar op basis van de ontvangen damage
     public void UpdateHealthImage(float _damage)
     {
+        
         _healthImage.fillAmount -= (_damage / _hp);
     }
 }

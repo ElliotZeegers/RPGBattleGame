@@ -3,21 +3,20 @@ using UnityEngine;
 
 public class TargetEntity : MonoBehaviour
 {
+    //Index van de huidige geselecteerde vijand
     private int _currentSelectedTarget = 0;
     [SerializeField] private Material _targetMaterial;
     [SerializeField] private Material _defaultMaterial;
 
+    //Property zodat andere scripts de waarde van _currentSelectedTarget kunnen ophalen
     public int SelectedTarget { get { return _currentSelectedTarget; } }
-
-    private void Awake()
-    {
-
-    }
 
     public void SelectEnemy(IPlayerInteractInput _input)
     {
+        //Verandert de geselecteerde target op basis van input
         _currentSelectedTarget += _input.SelectOption();
 
+        //Zorgt ervoor dat _currentSelectedTarget binnen de grenzen van BattleEnemies blijft. Als _currentSelectedTarget te hoog is, wordt hij op 0 gezet, als hij te laag is wordt hij op het laatste element gezet.
         if (_currentSelectedTarget >= BattleManager.Instance.BattleEnemies.Count())
         {
             _currentSelectedTarget = 0;
@@ -27,6 +26,7 @@ public class TargetEntity : MonoBehaviour
             _currentSelectedTarget = BattleManager.Instance.BattleEnemies.Count() - 1;
         }
 
+        //Zorgt ervoor dat het visueel duidelijk is wie er word getarget
         for (int i = 0; i < BattleManager.Instance.BattleEnemies.Count(); i++)
         {
             if (i == _currentSelectedTarget)
@@ -40,6 +40,7 @@ public class TargetEntity : MonoBehaviour
         }
     }
 
+    //Laat een vijand een willekeurige speler targeten
     public void SelectPlayer()
     {
         _currentSelectedTarget = Random.Range(0, BattleManager.Instance.BattlePlayers.Count());

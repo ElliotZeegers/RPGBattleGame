@@ -8,7 +8,7 @@ public class BattleUIManager : MonoBehaviour
 
     public void UpdateTurnUI()
     {
-        _turnText.text = "Turn: " + BattleManager.Instance.TurnCounter;
+        _turnText.text = "Beurt: " + BattleManager.Instance.TurnCounter;
     }
 
     public void UpdateWinnerUI(string pDisplayText)

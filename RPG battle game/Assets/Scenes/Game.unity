@@ -389,7 +389,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Goal: defeat 3 enemies!'
+  m_Text: 'Doel: versla 3 enemies!'
 --- !u!222 &369611503
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1591,63 +1591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061aac88fb2c12647b207367b005848e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &789464234
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4754405643173714720, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754405643173714720, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754405643173714720, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754405643173714720, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754405643173714720, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754405643173714720, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754405643173714720, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754405643173714720, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754405643173714720, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754405643173714720, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579766253933832421, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
-      propertyPath: m_Name
-      value: EnterTransition
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5cd64929c35d32e46b21c519a2f6a33b, type: 3}
 --- !u!1 &894943767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,7 +1983,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Enemies defeated: 0'
+  m_Text: 'Enemies verslagen: 0'
 --- !u!222 &1159213264
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2906,4 +2849,3 @@ SceneRoots:
   - {fileID: 766011688}
   - {fileID: 1943304717}
   - {fileID: 1353708088}
-  - {fileID: 789464234}

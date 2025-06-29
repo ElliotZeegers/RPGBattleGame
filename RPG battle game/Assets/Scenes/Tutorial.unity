@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 352519465}
   - component: {fileID: 352519464}
   m_Layer: 0
-  m_Name: Run
+  m_Name: RunBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1282,7 +1282,7 @@ GameObject:
   - component: {fileID: 1072122774}
   - component: {fileID: 1072122773}
   m_Layer: 0
-  m_Name: Item
+  m_Name: ItemBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1527,7 +1527,7 @@ GameObject:
   - component: {fileID: 1564507436}
   - component: {fileID: 1564507435}
   m_Layer: 0
-  m_Name: Attack
+  m_Name: AttackBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -295,8 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6305f69aee6bcd42a7030bcaceca949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startColor: {r: 0.18578064, g: 1, b: 0, a: 1}
-  _endColor: {r: 0.7715988, g: 0, b: 1, a: 1}
+  _startColor: {r: 0.63217163, g: 1, b: 0.54905653, a: 1}
+  _endColor: {r: 0.90429896, g: 0.57924527, b: 1, a: 1}
   _duration: 2
 --- !u!1 &824457399782121941
 GameObject:
@@ -559,8 +559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6305f69aee6bcd42a7030bcaceca949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startColor: {r: 0.18578064, g: 1, b: 0, a: 1}
-  _endColor: {r: 0.7715988, g: 0, b: 1, a: 1}
+  _startColor: {r: 0.601391, g: 1, b: 0.5113207, a: 1}
+  _endColor: {r: 0.90429896, g: 0.57924527, b: 1, a: 1}
   _duration: 2
 --- !u!114 &6921801483619252249
 MonoBehaviour:

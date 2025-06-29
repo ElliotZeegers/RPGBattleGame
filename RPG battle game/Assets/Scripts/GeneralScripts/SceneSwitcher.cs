@@ -28,10 +28,4 @@ public class SceneSwitcher : MonoBehaviour
         _sceneName = pSceneName;
         SceneManager.LoadScene(_sceneName);
     }
-
-    //Method om de game af te sluiten
-    public void OnClickExit()
-    {
-        Application.Quit();
-    }
 }

@@ -564,7 +564,8 @@ MonoBehaviour:
 
 
     -Je doel is om
-    3 enemies te verslaan zonder dat al je spelers af zijn in een battle.'
+    3 enemies (die rond lopen op de overworld) te verslaan zonder dat al je spelers
+    af zijn in een battle.'
 --- !u!222 &468932288
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1772,10 +1773,10 @@ MonoBehaviour:
 
     1 Blauw (Ren 20%
     kans van slagen) 2 Rood (Attack (daarna moet je een enemy selecteren (A,D / joystick)
-    bevestig je keuze of ga terug naar de blokken)) 3 Groen (Beurt overslaan)
+    de enemy die geslecteerd is krijgt een rode outline) bevestig je keuze of ga
+    terug naar de blokken)) 3 Groen (Beurt overslaan)
 
-    (zie
-    optieblokken hieronder)
+    (zie optieblokken hieronder)
 
 
 '

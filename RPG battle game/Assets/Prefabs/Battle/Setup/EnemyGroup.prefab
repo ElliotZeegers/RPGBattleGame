@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startColor: {r: 0, g: 1, b: 1, a: 1}
-  _endColor: {r: 1, g: 0, b: 0, a: 1}
+  _endColor: {r: 0.67053324, g: 1, b: 0.390566, a: 1}
   _duration: 2
 --- !u!4 &6523289107550449497 stripped
 Transform:
@@ -153,7 +153,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3316460279391628896, guid: d244adbab640adc49a2fd4c4520eb077, type: 3}
       propertyPath: _hp
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3316460279391628896, guid: d244adbab640adc49a2fd4c4520eb077, type: 3}
       propertyPath: _damage
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startColor: {r: 0, g: 1, b: 1, a: 1}
-  _endColor: {r: 1, g: 0, b: 0, a: 1}
+  _endColor: {r: 1, g: 0.9626847, b: 0.41320753, a: 1}
   _duration: 2
 --- !u!1001 &5879860075222598751
 PrefabInstance:
